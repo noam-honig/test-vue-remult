@@ -5,10 +5,21 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "node-serve": "./node_modules/.bin/tsc-watch -p tsconfig.server.json --onSuccess \"node dist-server/server/server.js"
   },
   "dependencies": {
+    "@remult/core": "^2.0.4",
+    "@remult/server": "^2.0.4",
+    "@remult/server-postgres": "^2.0.4",
+    "@types/pg": "^7.14.6",
+    "compression": "^1.7.4",
     "core-js": "^3.7.0",
+    "express": "^4.17.1",
+    "express-force-https": "^1.0.0",
+    "pg": "^8.4.2",
+    "reflect-metadata": "^0.1.13",
+    "tsc-watch": "^4.2.9",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^8.5.1"
