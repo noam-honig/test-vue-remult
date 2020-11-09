@@ -1,20 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <nav>
+      <router-link to="/users">User List</router-link> |
+      <router-link to="/add">Add User</router-link> |
+      <router-link v-if="context.user" to="update-password"
+        >Update Password</router-link> |
+      <router-link v-if="!context.user" to="sign-in">Sign In</router-link>
+      <span v-if="context.user">Hello {{ context.user.name }}</span>
+      &nbsp;
+      <button v-if="context.user" v-on:click="signOut">Sign Out</button>
+    </nav>
+    <div>
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { Component, Vue } from "vue-property-decorator";
+import context, { Common } from "./common/context";
+import router from "./router";
+import { Users } from "./users/users";
 
 @Component({
-  components: {
-    HelloWorld,
-  },
+  components: {},
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  context = context;
+  signOut() {
+    Common.authorization.signOut();
+    router.push({ path: "/sign-in" });
+  }
+  async errorCaptured(err: any) {
+    alert(err.message);
+  }
+}
 </script>
 
 <style>

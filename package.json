@@ -12,17 +12,20 @@
     "@remult/core": "^2.0.4",
     "@remult/server": "^2.0.4",
     "@remult/server-postgres": "^2.0.4",
+    "@types/jsonwebtoken": "^8.5.0",
     "@types/pg": "^7.14.6",
     "compression": "^1.7.4",
     "core-js": "^3.7.0",
     "express": "^4.17.1",
     "express-force-https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
     "pg": "^8.4.2",
     "reflect-metadata": "^0.1.13",
     "tsc-watch": "^4.2.9",
     "vue": "^2.6.12",
     "vue-class-component": "^7.2.6",
-    "vue-property-decorator": "^8.5.1"
+    "vue-property-decorator": "^8.5.1",
+    "vue-router": "^3.4.9"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.34.0",
@@ -38,9 +41,9 @@
     "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
-      "node": true
+      "node": false
     },
     "extends": [
       "plugin:vue/essential",
